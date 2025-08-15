@@ -1,6 +1,6 @@
 {
-    "name": "@webscraperio/api-client-nodejs",
-    "version": "1.1.0",
+    "name": "@cyrago/webscraperio-api-client",
+    "version": "1.1.1",
     "description": "Node.js API SDK for Web Scraper Cloud",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",

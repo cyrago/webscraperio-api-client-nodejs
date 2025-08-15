@@ -1,0 +1,36 @@
+import { ICreateScrapingJobResponse } from "./interfaces/ICreateScrapingJobResponse";
+import { ICreateSitemapResponse } from "./interfaces/ICreateSitemapResponse";
+import { IGetScrapingJobResponse } from "./interfaces/IGetScrapingJobResponse";
+import { IGetAccountInfoResponse } from "./interfaces/IGetAccountInfoResponse";
+import { IGetSitemapResponse } from "./interfaces/IGetSitemapResponse";
+import { IScrapingJobConfig } from "./interfaces/IScrapingJobConfig";
+import { IGetProblematicUrlsResponse } from "./interfaces/IGetProblematicUrlsResponse";
+import { IGetSitemapsResponse } from "./interfaces/IGetSitemapsResponse";
+import { IClientOptions } from "./interfaces/IClientOptions";
+import { IRequestOptionsQuery } from "./interfaces/IRequestOptionsQuery";
+import { PaginationGenerator } from "./PaginationGenerator";
+import { IGetScrapingJobDataQualityResponse } from "./interfaces/IGetScrapingJobDataQualityResponse";
+import { ISitemapSchedulerConfig } from "./interfaces/ISitemapSchedulerConfig";
+import { ISitemapSchedulerConfigResponse } from "./interfaces/ISitemapSchedulerConfigResponse";
+export declare class Client {
+    private readonly token;
+    private readonly httpClient;
+    constructor(options: IClientOptions);
+    createSitemap(sitemap: string): Promise<ICreateSitemapResponse>;
+    getSitemap(sitemapId: number): Promise<IGetSitemapResponse>;
+    getSitemaps(tag?: string): PaginationGenerator<IGetSitemapsResponse>;
+    updateSitemap(sitemapId: number, sitemap: string): Promise<string>;
+    deleteSitemap(sitemapId: number): Promise<string>;
+    createScrapingJob(scrapingJobConfig: IScrapingJobConfig): Promise<ICreateScrapingJobResponse>;
+    getScrapingJob(scrapingJobId: number): Promise<IGetScrapingJobResponse>;
+    getScrapingJobs(query?: IRequestOptionsQuery): PaginationGenerator<IGetScrapingJobResponse>;
+    downloadScrapingJobJSON(scrapingJobId: number, fileName: string): Promise<void>;
+    downloadScrapingJobCSV(scrapingJobId: number, fileName: string): Promise<void>;
+    getProblematicUrls(scrapingJobId: number): PaginationGenerator<IGetProblematicUrlsResponse>;
+    deleteScrapingJob(scrapingJobId: number): Promise<string>;
+    getAccountInfo(): Promise<IGetAccountInfoResponse>;
+    getScrapingJobDataQuality(scrapingJobId: number): Promise<IGetScrapingJobDataQualityResponse>;
+    enableSitemapScheduler(sitemapId: number, config: ISitemapSchedulerConfig): Promise<string>;
+    disableSitemapScheduler(sitemapId: number): Promise<string>;
+    getSitemapScheduler(sitemapId: number): Promise<ISitemapSchedulerConfigResponse>;
+}

@@ -42,7 +42,7 @@ export class Client {
 		return response.data;
 	}
 
-	public getSitemaps(): PaginationGenerator<IGetSitemapsResponse> {
+	public getSitemaps(tag?: string): PaginationGenerator<IGetSitemapsResponse> {
 
 		return new PaginationGenerator<IGetSitemapsResponse>(this.httpClient, "sitemaps");
 	}

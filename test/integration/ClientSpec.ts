@@ -116,6 +116,14 @@ describe("API Client", () => {
 		expect(allSitemaps.length).to.be.greaterThan(1);
 	});
 
+	it("should get sitemaps with tag filter", async () => {
+
+		const tagName = "test-tag";
+		const generator = client.getSitemaps(tagName);
+		const firstPageData = await generator.getPageData(1);
+		expect(firstPageData).to.be.an("array");
+	});
+
 	it("should update the sitemap", async () => {
 
 		const sitemap = await createSitemap();

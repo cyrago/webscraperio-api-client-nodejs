@@ -42,9 +42,9 @@ export class Client {
 		return response.data;
 	}
 
-	public getSitemaps(): PaginationGenerator<IGetSitemapsResponse> {
+	public getSitemaps(tag?: string): PaginationGenerator<IGetSitemapsResponse> {
 
-		return new PaginationGenerator<IGetSitemapsResponse>(this.httpClient, "sitemaps");
+		return new PaginationGenerator<IGetSitemapsResponse>(this.httpClient, "sitemaps", tag ? { tag } : undefined);
 	}
 
 	public async updateSitemap(sitemapId: number, sitemap: string): Promise<string> {

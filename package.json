@@ -42,5 +42,8 @@
     "bugs": {
         "url": "https://github.com/webscraperio/api-client-nodejs/issues"
     },
-    "homepage": "https://www.webscraper.io/"
+    "homepage": "https://www.webscraper.io/",
+    "dependencies": {
+        "dotenv": "^17.2.1"
+    }
 }
